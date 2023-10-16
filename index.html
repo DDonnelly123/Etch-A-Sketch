@@ -15,11 +15,29 @@
 
         <div class="container"></div>
 
-        <div class="slideContainer">
+        <div class = "sideBar">
 
-            <input type="range" min="1" max="60" value="16" class="slider" id="myRange">
+            <div class="color-pick">
 
-            <p>Grid Size: <span id="demo"></span></p>
+                <input type="color" class="picker"  value="#000000">
+
+            </div>
+
+            <button id="colorButton"  class = "btn active">Color Mode</button>
+
+            <button id="rainbowButton"  class = "btn">Rainbow Mode</button>
+
+            <button id="eraserButton"  class = "btn">Eraser</button>
+
+            <button id="clearButton"  class = "btn">Clear</button>
+
+            <div class="slideContainer">
+
+                <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
+
+                <p>Grid Size: <span id="demo"></span></p>
+
+            </div>
 
         </div>
         

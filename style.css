@@ -17,16 +17,15 @@ body{
     flex: 1;
 }
 
-.slideContainer {
+.sideBar {
     display: flex;
     flex-direction: column;
     text-align: center;
-    border: 7px solid pink;
     border-radius: 25px;
-    height: 400px;
-    width: 150px;
     padding: 10px;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: center;
 }
 
 .demo {
@@ -60,4 +59,50 @@ body{
     font-size: 12px;
     font-weight: 900;
     color: white;
+}
+
+
+button {
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 900;
+    border: 1px solid black;
+}
+
+.btn {
+    box-shadow: 2px 2px 2px 2px #666;
+    cursor: pointer;
+    transition: ease-in-out;
+    transition-duration: 250ms;
+}
+
+.active, .btn:hover {
+    background-color: #666;
+    color: white;
+}
+
+.color-pick {
+    width:100px;
+    height:100px;
+    overflow: hidden;
+    border-radius:100%;
+}
+
+
+input[type='color'] {
+    width:100%;
+    height:100%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #0000001A;
+    transform: scale(1.5);
+}
+
+ .color-pick {
+    transition: 500ms;
+}
+
+ .color-pick:hover {
+    transform: scale(1.2);
 }
