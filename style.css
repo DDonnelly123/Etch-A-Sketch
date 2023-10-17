@@ -38,13 +38,16 @@ body{
     height: 700px;
     display: flex;
     flex-wrap: wrap;
+    border: 30px solid crimson;
+    border-radius: 25px;
 }
 
 .cell {
     margin: 0;
     padding: 0;
     border: none;
-    outline: 1px solid grey;
+    background-color: white;
+    outline: 1px solid #666;
 }
 
 .footer{
@@ -52,7 +55,7 @@ body{
     background-color: #1f2937;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 8px;
 }
 
 .footerText{
@@ -83,6 +86,17 @@ button {
     color: white;
 }
 
+.clear {
+    box-shadow: 2px 2px 2px 2px #666;
+    cursor: pointer;
+    transition: ease-in-out;
+    transition-duration: 250ms;
+}
+
+.active, .clear:hover {
+    background-color: crimson;
+    color: white;
+}
 /*
 .color-pick {
     width:100px;

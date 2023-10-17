@@ -6,6 +6,12 @@ let slider = document.getElementById("myRange");
 let output = document.getElementById("demo");
 output.innerHTML = `${slider.value} x ${slider.value}`; 
 
+const blackMode = document.querySelector('#blackMode')
+const rainbowMode = document.querySelector('#rainbowMode')
+const eraserMode = document.querySelector('#eraserMode')
+const clearMode = document.querySelector('#clearMode')
+
+let currentMode = "black";
 
 function createGrid(playerChoice) {
   gridContainer.innerHTML = '';
@@ -16,7 +22,13 @@ function createGrid(playerChoice) {
             const cell = document.createElement('div');
             cell.className = "cell";
             cell.addEventListener("mouseover", () => {
-            cell.style.backgroundColor = "black"
+            if (currentMode === "black") {
+              cell.style.backgroundColor = "black"
+            } else if (currentMode === "rainbow") {
+             cell.style.backgroundColor = getRandomColor();
+            } else if (currentMode === "eraser") {
+              cell.style.backgroundColor = "white"
+            } 
           });
 
             cell.style.width = cellSize + 'px';
@@ -25,6 +37,12 @@ function createGrid(playerChoice) {
             gridContainer.appendChild(cell);
         }; 
     };
+
+    clearMode.addEventListener("click", () => {
+      for (const child of gridContainer.childNodes)
+      child.style.backgroundColor = "white";
+    })
+
 };  
     
 
@@ -33,7 +51,7 @@ function createGrid(playerChoice) {
 createGrid(playerChoice);
 
 slider.oninput = function() {
-    const playerChoice = this.value;
+    playerChoice = this.value;
     output.innerHTML = `${playerChoice} x ${playerChoice}`;
     createGrid(playerChoice);
   }
@@ -56,9 +74,25 @@ for (let i = 0; i < btns.length; i++) {
 /* const colorType = document.querySelector('.picker')
    const colorValue = colorType.value; */
 
+blackMode.addEventListener("click", () => {
+  currentMode = "black"
+});
 
-const blackMode = document.querySelector('#blackMode')
-const rainbowMode = document.querySelector('#rainbowMode')
-const eraserMode = document.querySelector('#eraserMode')
-const clearMode = document.querySelector('#clearMode')
+rainbowMode.addEventListener("click", () => {
+  currentMode = "rainbow"
+});
+
+eraserMode.addEventListener("click", () => {
+  currentMode = "eraser"
+});
+
+
+function getRandomColor() {
+  let letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
 
