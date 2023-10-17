@@ -7,29 +7,28 @@ let output = document.getElementById("demo");
 output.innerHTML = `${slider.value} x ${slider.value}`; 
 
 
-
-
 function createGrid(playerChoice) {
-
-    gridContainer.innerHTML = '';
+  gridContainer.innerHTML = '';
+  const cellSize = (700/playerChoice)
 
     for (let rows = 0; rows < playerChoice; rows ++) {
         for (let columns = 0; columns < playerChoice; columns++) {
             const cell = document.createElement('div');
             cell.className = "cell";
+            cell.addEventListener("mouseover", () => {
+            cell.style.backgroundColor = "black"
+          });
+
+            cell.style.width = cellSize + 'px';
+            cell.style.height = cellSize + 'px';
+            
             gridContainer.appendChild(cell);
-        };
+        }; 
     };
+};  
     
-    const cellSize = (700/playerChoice)
-    const cells = document.querySelectorAll('.cell');
 
-    cells.forEach((cell) => {
-        cell.style.width = cellSize + 'px';
-        cell.style.height = cellSize + 'px'
-    }) ;
 
-};
 
 createGrid(playerChoice);
 
@@ -40,7 +39,7 @@ slider.oninput = function() {
   }
 
   // Get the container element
-const btnContainer = document.querySelector(".sideBar");
+const btnContainer = document.querySelector('.sideBar');
 
 // Get all buttons with class="btn" inside the container
 const btns = btnContainer.getElementsByClassName("btn");
@@ -54,5 +53,12 @@ for (let i = 0; i < btns.length; i++) {
   });
 }
 
+/* const colorType = document.querySelector('.picker')
+   const colorValue = colorType.value; */
 
+
+const blackMode = document.querySelector('#blackMode')
+const rainbowMode = document.querySelector('#rainbowMode')
+const eraserMode = document.querySelector('#eraserMode')
+const clearMode = document.querySelector('#clearMode')
 
