@@ -38,8 +38,7 @@ body{
     height: 700px;
     display: flex;
     flex-wrap: wrap;
-    border: 30px solid crimson;
-    border-radius: 25px;
+    box-shadow: 2px 2px 2px 2px #666;
 }
 
 .cell {
@@ -47,7 +46,6 @@ body{
     padding: 0;
     border: none;
     background-color: white;
-    outline: 1px solid #666;
 }
 
 .footer{
